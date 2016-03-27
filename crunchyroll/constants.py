@@ -77,6 +77,39 @@ class ANDROID(API):
     FILTER_ASC          = 'asc'
     FILTER_DESC         = 'desc'
 
+    class GENRE:
+        class ANIME:
+            ACTION              =  'action'
+            ADVENTURE           =  'adventure'
+            COMEDY              =  'comedy'
+            DRAMA               =  'drama'
+            ECCHI               =  'ecchi'
+            FANTASY             =  'fantasy'
+            HISTORICAL          =  'historical'
+            MECHA               =  'mecha'
+            ROMANCE             =  'romance'
+            SCIENCE_FICTION     =  'science fiction'
+            SEINEN              =  'seinen'
+            SHOUJO              =  'shoujo'
+            SHOUNEN             =  'shounen'
+            SLICE_OF LIFE       =  'slice of life'
+            SPORTS              =  'sports'
+        class DRAMA:
+            CHINESE             =  'cdrama'
+            JAPANESE            =  'jdrama'
+            KOREAN              =  'kdrama'
+            SINGAPOREAN         =  'sgdrama'
+            ACTION              =  'action'
+            COMEDY              =  'comedy'
+            CRIME               =  'crime'
+            FAMILY              =  'family'
+            FOOD                =  'food'
+            HISTORICAL          =  'historical'
+            HORROR              =  'horror'
+            MARTIAL_ARTS        =  'martial arts'
+            ROMANCE             =  'romance'
+            THRILLER            =  'thriller'
+
     class FIELD:
         # these are apparently like database fields or something that you can add
         # to the list_series, list_media, and info methods to get additional or only

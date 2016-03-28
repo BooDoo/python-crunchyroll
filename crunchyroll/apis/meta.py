@@ -229,6 +229,25 @@ class MetaApi(ApiInterface):
 
     @optional_android_logged_in
     @return_collection(Series)
+    def list_anime_series_by_genre(self, genre, limit=META.MAX_SERIES, offset=0):
+        """Get a list of anime series, filtered to a specific genre
+
+        @param str genre     pick how results should be sorted, should be one
+                                of ANDROID.GENRE.ANIME.*
+        @param int limit    limit number of series to return, there doesn't
+                                seem to be an upper bound
+        @param int offset   list series starting from this offset, for pagination
+        @return list<crunchyroll.models.Series>
+        """
+        result = self._android_api.list_series(
+            media_type=ANDROID.MEDIA_TYPE_ANIME,
+            filter=ANDROID.FILTER_TAG + genre.lower(),
+            limit=limit,
+            offset=offset)
+        return result
+
+    @optional_android_logged_in
+    @return_collection(Series)
     def list_drama_series(self, sort=META.SORT_ALPHA, limit=META.MAX_SERIES, offset=0):
         """Get a list of drama series
 
@@ -242,6 +261,25 @@ class MetaApi(ApiInterface):
         result = self._android_api.list_series(
             media_type=ANDROID.MEDIA_TYPE_DRAMA,
             filter=sort,
+            limit=limit,
+            offset=offset)
+        return result
+
+    @optional_android_logged_in
+    @return_collection(Series)
+    def list_drama_series_by_genre(self, genre, limit=META.MAX_SERIES, offset=0):
+        """Get a list of drama series, filtered to a specific genre
+
+        @param str genre     pick how results should be sorted, should be one
+                                of ANDROID.GENRE.DRAMA.*
+        @param int limit    limit number of series to return, there doesn't
+                                seem to be an upper bound
+        @param int offset   list series starting from this offset, for pagination
+        @return list<crunchyroll.models.Series>
+        """
+        result = self._android_api.list_series(
+            media_type=ANDROID.MEDIA_TYPE_DRAMA,
+            filter=ANDROID.FILTER_TAG + genre.lower(),
             limit=limit,
             offset=offset)
         return result
